@@ -1,0 +1,111 @@
+@import '../theme/theme.css';
+
+.ordersContainer {
+    padding: 5%;
+    background: var(--color-white);
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.image {
+    width: 100px;
+    height: auto;
+    background: #DDDDDD;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 10px;
+    align-items: center;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linebreak {
+    margin: 29px 0;
+    width: 100%;
+}
+
+.orderId, .name, .deliveryDate, .paymentType, .heading, .amount {
+    font-family: var(--font-jost);
+}
+
+.orderId, .deliveryDate {
+    margin: 5px 0;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.amount {
+    color: var(--color-thickBlack);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.orderId, .deliveryDate, .paymentType {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-menuContent);
+}
+
+.break::before {
+    content: 'Pending';
+    position: relative;
+    background: var(--color-thickBlack);
+    color: var(--color-white);
+    padding: 4px;
+    text-align: center;
+    border-radius: 6px 6px 0px 0px;
+    width: 85px;
+    float: right;
+    top: 0px;
+    right: -2px;
+}
+
+.smallScreensOnly {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .smallScreensOnly {
+        display: inline;
+    }
+    .largeScreensOnly {
+        display: none;
+    }
+    .ordersContainer {
+        padding: 0;
+        border: none;
+    }
+    .amount, .paymentType, .orderId, .deliveryDate {
+        font-size: 12px;
+        line-height: 17px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .amount, .paymentType, .orderId, .deliveryDate {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .name {
+        font-size: 12px;
+    }
+}
