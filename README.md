@@ -10,7 +10,7 @@ Simple UI challenge - made up fashion webapp UI
 
 ## Steps to clone and run the application
 
-* git clone https://github.com/Marigameo/made-up-webapp.git
+* git clone https://github.com/Saravanakumarke/made_up_web
 
 * npm install
 
