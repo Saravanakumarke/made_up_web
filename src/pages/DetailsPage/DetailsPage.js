@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './DetailsPage.module.css'
 import Profile from '../../assets/images/profile-pic.png'
 import { FiChevronRight, FiChevronUp } from "react-icons/fi";
@@ -6,8 +6,17 @@ import ProfilePage from '../../components/Profile/Profile'
 import OrdersPage from '../../components/Orders/Orders'
 import Link from '../../components/Link'
 import './accordian.css'
+import Address from '../../components/Address';
 
-export default function DetailsPage ({ profileChecked, ordersChecked }) {
+export default function DetailsPage ({ profileChecked, ordersChecked, Addresschecked }) {
+
+    const [count,setcount] = useState(0);
+
+    const addcount = (val) =>
+    {
+        console.log(val)
+      setcount(val);
+    }
     return (
         <>
             <div className={`${styles.container} + " " + ${styles.largeScreensOnly}`}>
@@ -47,22 +56,25 @@ export default function DetailsPage ({ profileChecked, ordersChecked }) {
                                     <span><FiChevronRight /></span>
                                 </li>
                             </Link>
-                            <li className={styles.navItemWrapper}>
+                            <Link href="/address">
+                                
+                            <li className={Addresschecked ? `${styles.navItemWrapper} + " " + ${styles.Addressindicator}` : styles.navItemWrapper}>
                                 <div className={styles.navContent}>
                                     <div className={styles.title}>
                                         Shipping addresses
                                     </div>
                                     <div className={styles.secondaryText}>
-                                        3 addresses
+                                        {count} addresses
                                     </div>
                                 </div>
                                 <span><FiChevronRight /></span>
                             </li>
+                            </Link>
                         </ul>
                     </nav>
                 </aside>
                 <section className={styles.informationWrapper}>
-                    {window.location.pathname === '/profile' ? <ProfilePage /> : <OrdersPage />}
+                    {window.location.pathname === '/profile' ? <ProfilePage /> : window.location.pathname === '/address' ? <Address parentCallback = {addcount}/> : <OrdersPage />  }
                 </section>
             </div>
             <div className={`${styles.accordian} + " " + ${styles.smallScreensOnly}`}>
